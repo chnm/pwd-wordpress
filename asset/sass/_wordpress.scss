@@ -1,0 +1,39 @@
+
+article,
+.pagination {
+    width: 70%;
+    float: left;
+    padding-right: .5 * $spacing-unit;
+}
+
+article h2 {
+    margin-bottom: 0;
+}
+
+article .post-meta {
+    margin-bottom: $spacing-unit;
+    color: #000;
+}
+
+aside.sidebar {
+    width: 30%;
+    display: inline-block;
+    background-color: transparentize($light-blue-color, .85);
+    padding: .5 * $spacing-unit;
+    border-top: 3px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+aside.sidebar .search {
+    display: flex;
+    margin-bottom: $spacing-unit;
+    width: 100%;
+}
+
+aside.sidebar input[type="search"] {
+    width: 100%;
+}
+
+aside.sidebar .search button {
+    border-radius: 0 3px 3px 0;
+}
