@@ -1,0 +1,79 @@
+.break.opaque {
+    border-bottom: 1px solid $grey-color-dark;
+    margin: $spacing-unit 0;
+}
+
+.home .blocks > h2:first-child {
+    display: none;
+}
+
+.home .stats {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.home .stat {
+    width: 50%;
+    display: flex;
+    padding: $spacing-unit $spacing-unit 0 0;
+}
+
+.home .stat h3 {
+    font-size: 1.375 * $base-font-size;
+    line-height: $base-line-height;
+    width: 40%;
+    margin-right: $spacing-unit;
+    text-align: right;
+}
+
+.home .stat p {
+    width: 60%;
+}
+
+.home .item-showcase {
+    display: flex;
+    margin: 0 (-.5 * $spacing-unit);
+
+    .item {
+        width: 25%;
+        padding: (.5 * $spacing-unit);
+    }
+
+    .item h3 {
+        margin: (.5 * $spacing-unit) 0;
+    }
+}
+
+.blocks .intro {
+    position: relative;
+    padding-bottom: .5 * $spacing-unit;
+    text-align: center;
+
+    p {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    p,
+    .button {
+        font-size: 1.25 * $base-font-size;
+        line-height: 1.5 * $base-line-height;    
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: -30px;
+        left: -9999px;
+        right: -9999px;
+        bottom: 0;
+        background: $grey-color-light;
+        z-index: -1;
+    }
+}
+
+.blocks {
+    max-width: 900px;
+    margin: auto;
+}

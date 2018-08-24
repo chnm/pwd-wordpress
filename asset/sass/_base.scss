@@ -47,6 +47,7 @@ p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
   margin-bottom: $spacing-unit / 2;
+  font-weight: normal;
 }
 
 
@@ -238,22 +239,27 @@ table {
   text-align: $table-text-align;
   color: lighten($text-color, 18%);
   border-collapse: collapse;
-  border: 1px solid $grey-color-light;
+  border-top: 5px solid #000;
+
+  thead tr {
+    background-color: transparentize(#fff, .95);
+  }
+
   tr {
+    background-color: transparentize($blue-color, .95);
     &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
+      background-color: transparentize($yellow-color, .95);
     }
   }
   th, td {
     padding: ($spacing-unit / 3) ($spacing-unit / 2);
-  }
-  th {
-    background-color: lighten($grey-color-light, 3%);
-    border: 1px solid darken($grey-color-light, 4%);
-    border-bottom-color: darken($grey-color-light, 12%);
+    border-bottom: 1px solid #000;
+
+    &:not(:last-child) {
+      border-right: 1px solid #000;
+    }
   }
   td {
-    border: 1px solid $grey-color-light;
     vertical-align: top;
   }
 }
