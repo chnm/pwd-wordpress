@@ -1,7 +1,7 @@
 /**
  * Reset some basic elements
  */
- * {
+* {
   box-sizing: border-box;
 }
 
@@ -19,7 +19,9 @@ dl, dd, ol, ul, figure {
  */
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-  background-image: url('../img/bg.png');
+  background: url('../img/bg.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   color: $text-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
@@ -299,7 +301,7 @@ input[type="submit"] {
 input:not([type=submit]):not([type=file]):not([type=radio]):not([type=checkbox]) {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   padding: (.125 * $spacing-unit) (.25 * $spacing-unit);
-  border: 1px solid $grey-color;
+  border: 1px solid $grey-color-light;
 }
 
 select {
