@@ -1,3 +1,7 @@
+select {
+    background: #fff url(../img/select-arrow.svg) no-repeat right (.25 * $spacing-unit) center;
+    background-size: .25 * $spacing-unit;;
+}
 
 article,
 .pagination {
