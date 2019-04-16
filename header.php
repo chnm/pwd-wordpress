@@ -11,7 +11,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="<?php bloginfo('description'); ?>">
-
         <?php wp_head(); ?>
         <script>
         // conditionizr.com
@@ -28,7 +27,7 @@
         <header class="site-header" role="banner">
             <div class="wrapper">
                 <!-- logo -->
-                <a href="http://localhost/omeka-s/s/wardepartmentpapers" class="site-title">
+                <a href="http://dev.wardepartmentpapers.org/s/home/" class="site-title">
                     Papers of the War Department
                 </a>
                 <!-- /logo -->
@@ -41,7 +40,7 @@
                     </label>
 
                     <div class="trigger">
-                    <?php html5blank_nav(); ?>
+                    <?php display_omeka_nav(); ?>
                     </div>
                 </nav>
                 <!-- /nav -->

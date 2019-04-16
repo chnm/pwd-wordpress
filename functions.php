@@ -449,4 +449,86 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
     return '<h2>' . $content . '</h2>';
 }
 
+/*------------------------------------*\
+	Omeka Functions
+\*------------------------------------*/
+
+function search_pages_by_id($pageId, $pages) {
+    foreach ($pages as $page) {
+        if ($page["o:id"] == $pageId) {
+            return $page;
+        }
+    }
+}
+
+function display_omeka_nav($navLink) {
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "http://dev.wardepartmentpapers.org/api/sites/2",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "GET",
+      CURLOPT_HTTPHEADER => array(
+        "cache-control: no-cache"
+      ),
+    ));
+    
+    $siteResponse = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "http://dev.wardepartmentpapers.org/api/site_pages",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "GET",
+      CURLOPT_HTTPHEADER => array(
+        "cache-control: no-cache"
+      ),
+    ));
+    
+    $pagesResponse = curl_exec($curl);
+    
+    curl_close($curl);
+
+    $siteResponse = json_decode($siteResponse, true);
+    $pagesResponse = json_decode($pagesResponse, true);
+    $siteUrl = "http://dev.wardepartmentpapers.org";
+    $omekaBaseUrl = "/s/home/";
+    
+    $url = '';
+    $label = '';
+
+    $html = "<ul>";
+    
+    foreach ($siteResponse["o:navigation"] as $navLink) {
+        switch($navLink['type']) {
+            case "page":
+                $currentPage = search_pages_by_id($navLink["data"]["id"], $pagesResponse);
+                $url = $siteUrl . $omekaBaseUrl . "page/" . $currentPage["o:slug"];
+                $label = $currentPage["o:title"];
+                break;
+            case "url":
+                $url = $navLink["data"]["url"];
+                $label = $navLink["data"]["label"];
+                break;
+            case "scripto":
+                $url = $siteUrl . "/scripto" . $omekaBaseUrl . $navLink["data"]["project_id"];
+                $label = ($navLink["data"]["label"] == '') ? 'Scripto' : $navLink["data"]["label"];
+                break;
+            case "browse":
+                $url = $siteUrl . $omekaBaseUrl . "item";
+                $label = ($navLink["data"]["label"] == '') ? 'Browse Items' : $navLink["data"]["label"];
+                break;
+        }
+        
+        $html .= "<li><a href='$url'>$label</a></li>";
+    }
+
+    $html .= "</ul>";    
+    echo $html;
+}
+
 ?>
