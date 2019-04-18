@@ -46,34 +46,339 @@
 
 .blocks .intro {
     position: relative;
-    padding-bottom: .5 * $spacing-unit;
-    text-align: center;
+    padding: 2 * $spacing-unit;
+    font-size: 1.125 * $base-font-size;
+    margin-bottom: $spacing-unit;
+    border-top: 5px solid #000;
+    background-color: transparentize($yellow-color, .9);
 
-    p {
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    p,
-    .button {
-        font-size: 1.25 * $base-font-size;
-        line-height: 1.5 * $base-line-height;    
-    }
-
-    &:after {
+    &:before {
         content: "";
         position: absolute;
-        top: -30px;
-        left: -9999px;
-        right: -9999px;
+        top: 0;
+        right: 0;
+        left: 0;
         bottom: 0;
-        background: $grey-color-light;
+        background: url('../img/intro.jpg') no-repeat center center;
+        background-size: cover;
+        opacity: .08;
         z-index: -1;
+    }
+
+    h2 {
+        font-size: 1.25 * $base-font-size;
+        line-height: 1.5 * $base-line-height;    
+        text-align: left;
+        margin-bottom: 0;
+        font-variant: small-caps;
+        font-weight: bold;
+    }
+}
+
+.home .transcribe {
+    padding: $spacing-unit;
+    padding-left: calc(50% + #{$spacing-unit});
+    font-size: 1.125 * $base-font-size;
+    border-top: 5px solid #000;
+    background-color: transparentize($light-blue-color, .85);
+    position: relative;
+    
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 50%;
+        left: 0;
+        bottom: 0;
+        background: url('../img/transcribe.jpg') no-repeat center center;
+        background-size: cover;
     }
 }
 
 .blocks {
     max-width: 900px;
     margin: auto;
+}
+
+.blocks h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.toc-block {
+    margin: 0 (-.5 * $spacing-unit);
+}
+
+.toc-block .navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.toc-block ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.toc-block a {
+  padding: (.25 * $spacing-unit) 0;
+  display: block;
+  color: #000;
+}
+
+.toc-block ul ul a {
+  padding-left: 0;
+}
+
+.toc-block ul ul li {
+  border-top: 1px solid #000;
+  font-variant: normal;
+  display: flex;
+}
+
+.toc-block > ul > li {
+  border-top: 3px solid #000;
+  font-variant: small-caps;
+  background-color: $light-blue-color;
+  width: calc(50% - #{$spacing-unit});
+  margin: $spacing-unit (.5 * $spacing-unit);
+  padding: (.5 * $spacing-unit) $spacing-unit;
+}
+
+.toc-block ul ul li:before {
+  content: "\f005";
+  display: inline-block;
+  margin-right: (.5 * $spacing-unit);
+  margin-top: 14px;
+  font-family: "Font Awesome 5 Free";
+  font-size: 10px;
+}
+
+
+.items.search .page-content .wrapper,
+.item.browse .page-content .wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.item.browse .resource-list {
+    list-style: none;
+    margin: $spacing-unit 0;
+    border-top: 1px solid $grey-color-dark;
+    padding-top: $spacing-unit;
+    
+    .resource {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: $spacing-unit;        
+        border-bottom: 1px solid $grey-color-dark;
+        padding-bottom: $spacing-unit;
+    }
+    
+    .item-thumbnail {
+        align-self: flex-end;
+    }
+    
+    .item-meta {
+        width: 100%;
+    }
+    
+    .item-thumbnail + .item-meta {
+        width: 80%;
+        margin-left: $spacing-unit;
+    }
+    
+    h4 {
+        margin-bottom: 0;
+        font-variant: small-caps;
+    }
+}
+
+.collection-navigation {
+    justify-content: center;
+    display: flex;
+    border-bottom: 1px solid $grey-color-dark;
+    padding-bottom: (.5 * $spacing-unit);
+    margin-bottom: $spacing-unit;
+}
+
+.collection-navigation a {
+    display: block;
+    margin: 0 (.5 * $spacing-unit);
+}
+
+.browse-controls {
+    align-items: center;
+}
+
+.browse-controls .sorting {
+    order: 1;
+    margin-right: $spacing-unit;
+}
+
+.browse-controls .advanced-search {
+    order: 2;
+}
+
+.browse-controls .pagination {
+    order: 3;
+    
+    form {
+        margin-right: (.5 * $spacing-unit);
+    }
+}
+
+.wrapper > h2:first-child {
+    text-align: center;
+}
+
+.wrapper > h2:first-child + h3 {
+    text-align: center;
+    margin-top: (-.5 * $spacing-unit);
+    font-variant: small-caps;
+}
+
+.properties {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.media-list,
+.property {
+    display: flex;
+    width: 100%;
+    padding: (.25 * $spacing-unit) 0;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $grey-color-dark;
+    }
+    
+    h4 {
+        width: 30%;
+        padding-right: $spacing-unit;
+        text-align: right;
+        margin-bottom: 0;
+        font-variant: small-caps;
+    }
+    
+    a.resource-link,
+    .values {
+        width: 70%;
+    }
+
+    .resource-link {
+        display: flex;
+        align-items: center;
+        
+        img {
+            width: 1.5 * $spacing-unit;
+            height: 1.5 * $spacing-unit;
+            margin-right: (.25 * $spacing-unit);
+        }
+        
+    }
+}
+
+.media-list {
+    margin-bottom: 2 * $spacing-unit;
+}
+
+.item.show table {
+    max-width: 900px;
+    margin: $spacing-unit auto;
+}
+
+.item.show h3 {
+    text-align: center;
+    margin: (2 * $spacing-unit) auto 0;
+}
+
+#advanced-search .value {
+    margin-bottom: (.25 * $spacing-unit) !important;
+}
+
+#advanced-search .remove-value {
+    text-indent: -9999px;
+    position: relative;
+    width: (1.5 * $spacing-unit);
+    height: (1.5 * $spacing-unit);
+    margin-left: (.25 * $spacing-unit);
+    
+    &:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        text-indent: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+#advanced-search .removable .value:only-of-type .remove-value {
+    display: none;
+}
+
+#advanced-search .field {
+    display: flex;
+    margin-bottom: $spacing-unit;
+}
+
+#advanced-search .field-meta {
+    width: 20%;
+    padding-right: (.25 * $spacing-unit);
+}
+
+#advanced-search .field-meta .label {
+    font-size: 1.25 * $base-font-size;
+}
+
+#advanced-search .inputs {
+    width: 80%;
+    padding-left: .25 * $spacing-unit;
+}
+
+#advanced-search .field-description {
+    font-size: .875 * $base-font-size;
+}
+
+.breadcrumbs {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 0;
+    text-align: center;
+    border-bottom: 1px solid $grey-color-dark;
+    padding-bottom: (.5 * $spacing-unit);
+    margin-bottom: $spacing-unit;
+    font-size: .875 * $base-font-size;
+}
+
+.site-page-pagination {
+    text-align: center;
+}
+
+.media-list .resource-link {
+    margin-bottom: (.25 * $spacing-unit);
+}
+
+.linked-header {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#linked-filter {
+  display: flex;
+  justify-content: center;
+  margin: $spacing-unit 0 0;
+}
+
+#linked-filter h4 {
+  margin: (.25 * $spacing-unit) (.5 * $spacing-unit) (.25 * $spacing-unit) 0;
+}
+
+.linked-resource-property {
+    margin-bottom: (.5 * $spacing-unit);
+    font-style: italic;
 }

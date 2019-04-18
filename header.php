@@ -27,9 +27,17 @@
         <header class="site-header" role="banner">
             <div class="wrapper">
                 <!-- logo -->
+                <?php if (function_exists('the_custom_logo') && has_custom_logo()): ?>
+                    <?php
+                    $custom_logo_id = get_theme_mod( 'custom_logo' );
+                    $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                    ?>
+                    <a href="http://dev.wardepartmentpapers.org/s/home/" class="site-title logo"><img src="<?php echo esc_url($logo[0]); ?>" alt="<?php echo get_bloginfo('name'); ?>"></a>
+                <?php else: ?>
                 <a href="http://dev.wardepartmentpapers.org/s/home/" class="site-title">
                     Papers of the War Department
                 </a>
+                <?php endif; ?>
                 <!-- /logo -->
 
                 <!-- nav -->

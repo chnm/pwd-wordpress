@@ -54,8 +54,22 @@ if (function_exists('add_theme_support'))
     // Enables post and comment RSS feed links to head
     add_theme_support('automatic-feed-links');
 
+    // Add logo upload.
+    add_theme_support( 'custom-logo' );
+
+    function pwd_custom_logo_setup() {
+        $defaults = array(
+            'header-text' => array( 'site-title', 'site-description' ),
+        );
+
+        add_theme_support( 'custom-logo', $defaults );
+    }
+
+    add_action( 'after_setup_theme', 'pwd_custom_logo_setup' );
+
     // Localisation Support
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
+    
 }
 
 /*------------------------------------*\
