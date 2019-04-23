@@ -476,10 +476,12 @@ function search_pages_by_id($pageId, $pages) {
 }
 
 function display_omeka_nav($navLink) {
+    $siteUrl = "http://dev.wardepartmentpapers.org";
+
     $curl = curl_init();
     
     curl_setopt_array($curl, array(
-      CURLOPT_URL => "http://dev.wardepartmentpapers.org/api/sites/2",
+      CURLOPT_URL => $siteUrl . "/api/sites/2",
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -493,7 +495,7 @@ function display_omeka_nav($navLink) {
     $err = curl_error($curl);
 
     curl_setopt_array($curl, array(
-      CURLOPT_URL => "http://dev.wardepartmentpapers.org/api/site_pages",
+      CURLOPT_URL => $siteUrl . "/api/site_pages",
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -509,7 +511,6 @@ function display_omeka_nav($navLink) {
 
     $siteResponse = json_decode($siteResponse, true);
     $pagesResponse = json_decode($pagesResponse, true);
-    $siteUrl = "http://dev.wardepartmentpapers.org";
     $omekaBaseUrl = "/s/home/";
     
     $url = '';

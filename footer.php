@@ -1,12 +1,14 @@
       <!-- footer -->
       <footer class="site-footer h-card">
-          <div class="wrapper">
-              <!-- copyright -->
-              <p class="copyright">
-                  &copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-                  <a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-              </p>
-              <!-- /copyright -->
+          <div class="wrapper">	
+            	<p>Papers of the War Department is a project of the <a href="http://chnm.gmu.edu">Roy Rosenzweig Center for History and New Media</a>, <a href="http://www.gmu.edu">George Mason University</a> with funding from the <a href="http://www.archives.gov/nhprc/">National Historical Publications and Records Commission</a> and the <a href="http://www.neh.gov/">National Endowment for the Humanities</a>.</p>
+            	<p>Descriptive metadata and transcriptions are available for use under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons by Attribution License (4.0)</a>. Permissions for use of the document images are held by their original repository.</p>
+            	<div class="logos">
+                	<a href="http://rrchnm.org" id="rrchnm-logo">RRCHNM</a>
+                	<a href="https://www.acls.org/" id="acls-logo">ACLS</a>
+                	<a href="http://www.archives.gov/nhprc/" id="nhrpc-logo">NHRPC</a>
+                	<a href="http://www.neh.gov/" id="neh-logo">NEH</a>
+            	</div>
           </div>
       </footer>
             <!-- /footer -->

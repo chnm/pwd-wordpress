@@ -14,6 +14,10 @@ blockquote {
     border-color: $grey-color-dark;
 }
 
+table.tablesaw {
+    border-top: 5px solid #000;
+}
+
 /**
  * Site header
  */
@@ -321,6 +325,43 @@ ul.user-menu {
 /**
  * Site footer
  */
+ 
+ footer .wrapper {
+     max-width: 900px;
+     margin: 0 auto;
+     padding: 0;
+ }
+ 
+ footer .logos {
+     display: flex;
+     justify-content: center;
+     margin: $spacing-unit 0;
+     
+    #rrchnm-logo {
+        background: url('../img/rrchnm.png') no-repeat center/contain;
+    }
+
+    #acls-logo {
+        background: url('../img/acls.png') no-repeat center/contain;
+    }
+    
+    #nhrpc-logo {
+        background: url('../img/nhprc.png') no-repeat center/contain;
+    }
+    
+    #neh-logo {
+        background: url('../img/neh.png') no-repeat center/contain;
+    }
+
+    a {
+        height: 3 * $spacing-unit;
+        width: 25%;
+        margin: 0 $spacing-unit;
+        display: block;
+        text-indent: -9999px;
+    }     
+ }
+ 
 .site-footer {
   border-top: 1px solid $grey-color;
   padding: $spacing-unit 0;
@@ -557,4 +598,16 @@ nav.pagination .row-count {
   h4 {
     @include relative-font-size(1.25);
   }
+}
+
+@media screen and (max-width:39.9375em) {
+    table th:not(:last-child), 
+    table td:not(:last-child) {
+        border-right: 0;
+    }
+    
+    .site-nav ul {
+        line-height: $base-line-height;
+        padding: (.5 * $spacing-unit);
+    }
 }
